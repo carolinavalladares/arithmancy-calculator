@@ -1,13 +1,16 @@
 import React from "react";
 
 interface IProps {
-  result: { number: number; text: string };
+  result: {
+    number: number;
+    details: { principle?: string; keywords: string[]; description: string };
+  };
   title: string;
   description: string;
 }
 
 const ResultCard = ({ title, result, description }: IProps) => {
-  const { number, text } = result;
+  const { number, details } = result;
   return (
     <div className=" w-full max-w-xl rounded p-5">
       <h2 className="font-medium flex items-center gap-1 leading-none ">
@@ -19,7 +22,7 @@ const ResultCard = ({ title, result, description }: IProps) => {
       <p className="font-light text-xs leading-none">({description})</p>
 
       <div className="mt-2 ml-2">
-        <p>{text}</p>
+        <p>{details.description}</p>
       </div>
     </div>
   );

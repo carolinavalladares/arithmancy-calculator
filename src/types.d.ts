@@ -1,18 +1,39 @@
 export interface IResults {
+  lifePath: {
+    number: number;
+
+    details: {
+      principle?: string;
+      keywords: string[];
+      description: string;
+    };
+  };
   characterNumber: {
     number: number;
 
-    text: string;
+    details: {
+      principle?: string;
+      keywords: string[];
+      description: string;
+    };
   };
   heartNumber: {
     number: number;
 
-    text: string;
+    details: {
+      principle?: string;
+      keywords: string[];
+      description: string;
+    };
   };
   socialNumber: {
     number: number;
 
-    text: string;
+    details: {
+      principle?: string;
+      keywords: string[];
+      description: string;
+    };
   };
 }
 
@@ -49,4 +70,64 @@ export interface IAlphabetNumbers {
   x: number;
   y: number;
   z: number;
+}
+
+export interface INumberMeanings {
+  1: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  2: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  3: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  4: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  5: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  6: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  7: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  8: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  9: {
+    principle?: string;
+    keywords: string[];
+    description: string;
+  };
+  11: {
+    keywords: string[];
+    description: string;
+  };
+  22: {
+    keywords: string[];
+    description: string;
+  };
+  33: {
+    keywords: string[];
+    description: string;
+  };
 }

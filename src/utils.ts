@@ -11,7 +11,12 @@ export function calculate(name: string, date: string) {
     day == "11" || "22" || "33" ? Number(day) : reduceNumbers(Number(day));
   const dateSum = y + m + d;
 
-  const lifePath = reduceNumbers(dateSum);
+  let lifePathNumber;
+  if (dateSum != 11 && dateSum != 22 && dateSum != 33) {
+    lifePathNumber = reduceNumbers(dateSum);
+  } else {
+    lifePathNumber = dateSum;
+  }
 
   // Character Number
   const nameArr = name.toLowerCase().split(" ");
@@ -20,7 +25,12 @@ export function calculate(name: string, date: string) {
     nameSum += calculateLetterNumbers(nameArr[i]);
   }
 
-  const characterNumber = reduceNumbers(nameSum);
+  let characterNumber;
+  if (nameSum != 11 && nameSum != 22 && nameSum != 33) {
+    characterNumber = reduceNumbers(nameSum);
+  } else {
+    characterNumber = nameSum;
+  }
 
   // Heart Number
   const nameArrVowels = name
@@ -33,7 +43,12 @@ export function calculate(name: string, date: string) {
     nameVowelsSum += calculateLetterNumbers(nameArrVowels[i]);
   }
 
-  const heartNumber = reduceNumbers(nameVowelsSum);
+  let heartNumber;
+  if (nameVowelsSum != 11 && nameVowelsSum != 22 && nameVowelsSum != 33) {
+    heartNumber = reduceNumbers(nameVowelsSum);
+  } else {
+    heartNumber = nameSum;
+  }
 
   // Social Number
   const nameArrConsonants = name
@@ -46,9 +61,18 @@ export function calculate(name: string, date: string) {
     nameConsonantsSum += calculateLetterNumbers(nameArrConsonants[i]);
   }
 
-  const socialNumber = reduceNumbers(nameConsonantsSum);
+  let socialNumber;
+  if (
+    nameConsonantsSum != 11 &&
+    nameConsonantsSum != 22 &&
+    nameConsonantsSum != 33
+  ) {
+    socialNumber = reduceNumbers(nameConsonantsSum);
+  } else {
+    socialNumber = nameSum;
+  }
 
-  return { lifePath, characterNumber, socialNumber, heartNumber };
+  return { lifePathNumber, characterNumber, socialNumber, heartNumber };
 }
 
 export function reduceNumbers(number: number) {

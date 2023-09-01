@@ -1,4 +1,4 @@
-import { IAlphabetNumbers } from "./types";
+import { IAlphabetNumbers, INumberMeanings } from "./types";
 
 export const alphabetNumbers: IAlphabetNumbers = {
   a: 1,
@@ -35,7 +35,7 @@ export const references = [
   "https://www.lovetoknow.com/life/astrology/numerology-number-meanings",
 ];
 
-export const numberMeanings = {
+export const numberMeanings: INumberMeanings = {
   1: {
     principle: "yang",
     keywords: ["new beginnings", "opportunity", "potential"],

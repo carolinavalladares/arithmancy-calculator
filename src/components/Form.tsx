@@ -1,7 +1,13 @@
 import { useState } from "react";
-import { calculate, reduceNumbers } from "../utils";
+import { calculate } from "../utils";
+import { INumberMeanings, IResults } from "../types";
+import { numberMeanings } from "../CONSTS";
 
-const Form = () => {
+interface IProps {
+  setResults: React.Dispatch<React.SetStateAction<IResults | null>>;
+}
+
+const Form = ({ setResults }: IProps) => {
   const [values, setValues] = useState({ date: "", name: "" });
 
   const handleSubmit = (e: React.MouseEvent<HTMLFormElement, MouseEvent>) => {
@@ -9,7 +15,29 @@ const Form = () => {
     console.log(values);
 
     setValues({ date: "", name: "" });
-    console.log(calculate("John Smith", "20-08-1995"));
+    const { lifePathNumber, characterNumber, socialNumber, heartNumber } =
+      calculate(values.name, values.date);
+
+    console.log(lifePathNumber, characterNumber, socialNumber, heartNumber);
+
+    setResults({
+      lifePath: {
+        number: lifePathNumber,
+        details: numberMeanings[lifePathNumber as keyof INumberMeanings],
+      },
+      characterNumber: {
+        number: characterNumber,
+        details: numberMeanings[characterNumber as keyof INumberMeanings],
+      },
+      socialNumber: {
+        number: socialNumber,
+        details: numberMeanings[socialNumber as keyof INumberMeanings],
+      },
+      heartNumber: {
+        number: heartNumber,
+        details: numberMeanings[heartNumber as keyof INumberMeanings],
+      },
+    });
   };
 
   return (

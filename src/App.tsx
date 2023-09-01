@@ -14,7 +14,7 @@ function App() {
       </div>
 
       <div className="mb-11 w-full">
-        <Form />
+        <Form setResults={setResults} />
       </div>
 
       {results && (
@@ -24,7 +24,7 @@ function App() {
             <ResultCard
               description="Soul's journey"
               title="Life Path Number"
-              result={results.socialNumber}
+              result={results.lifePath}
             />
             <ResultCard
               title="Character Number"
