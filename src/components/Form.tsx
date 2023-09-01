@@ -55,8 +55,12 @@ const Form = ({ setResults }: IProps) => {
         />
       </div>
 
-      <div className="flex item-center justify-center mb-4">
+      <div className="flex item-center flex-col justify-center mb-4">
+        <label className=" text-sm mb-2" htmlFor="birthday">
+          Enter your birthday:
+        </label>
         <input
+          id="birthday"
           className="rounded p-2"
           onChange={(e) => setValues({ ...values, date: e.target.value })}
           type="date"
