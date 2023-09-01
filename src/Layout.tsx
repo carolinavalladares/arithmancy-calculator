@@ -35,12 +35,18 @@ const Layout = ({ children }: IProps) => {
           className="flex items-center justify-center gap-1 m-auto mb-2"
         >
           <h2 className="font-medium text-sm leading-none mb-1">References</h2>
-          <ChevronDown size={20} strokeWidth={1} />
+          <ChevronDown
+            className={`transition-all ${
+              footerOpen ? "rotate-180" : "  rotate-0"
+            }`}
+            size={20}
+            strokeWidth={1}
+          />
         </button>
 
         <ul
           className={`w-full transition-all ${
-            footerOpen ? "scale-y-0 h-0" : "scale-y-100 h-fit"
+            footerOpen ? "scale-y-100 h-fit" : " scale-y-0 h-0"
           } overflow-hidden`}
         >
           {references.map((reference, i) => {
