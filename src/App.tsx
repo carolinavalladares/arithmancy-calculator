@@ -6,7 +6,7 @@ import ResultCard from "./components/ResultCard";
 function App() {
   const [results, setResults] = useState<IResults | null>(null);
   return (
-    <div className="flex flex-col items-center justify-center px-4">
+    <div className="flex flex-col items-center justify-center px-4 pb-8">
       <div className="mb-10">
         <h1 className="text-xl font-medium">
           Welcome to Arithmancy Calculator
@@ -18,9 +18,11 @@ function App() {
       </div>
 
       {results && (
-        <section className="w-full">
-          <h2>Your results: </h2>
-          <div className="w-full flex flex-col gap-4  [&>*:nth-child(odd)]:bg-white [&>*:nth-child(odd)]:bg-opacity-10 [&>*:nth-child(even)]:bg-black [&>*:nth-child(even)]:bg-opacity-10 ">
+        <section className="w-full ">
+          <h2 className="w-full max-w-lg m-auto text-lg mb-4 font-semibold">
+            Your results:{" "}
+          </h2>
+          <div className="w-full flex flex-col items-center justify-center gap-4  [&>*:nth-child(odd)]:bg-white [&>*:nth-child(odd)]:bg-opacity-10 [&>*:nth-child(even)]:bg-black [&>*:nth-child(even)]:bg-opacity-10 ">
             <ResultCard
               description="Soul's journey"
               title="Life Path Number"
