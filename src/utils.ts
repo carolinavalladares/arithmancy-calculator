@@ -23,22 +23,32 @@ export function calculate(name: string, date: string) {
   const characterNumber = reduceNumbers(nameSum);
 
   // Heart Number
+  const nameArrVowels = name
+    .toLowerCase()
+    .replace(/[^aeiou]/gi, "")
+    .split(" ");
+
+  let nameVowelsSum = 0;
+  for (let i = 0; i < nameArrVowels.length; i++) {
+    nameVowelsSum += calculateLetterNumbers(nameArrVowels[i]);
+  }
+
+  const heartNumber = reduceNumbers(nameVowelsSum);
 
   // Social Number
   const nameArrConsonants = name
     .toLowerCase()
     .replace(/[aeiou]/gi, "")
     .split(" ");
-  console.log(nameArrConsonants);
+
   let nameConsonantsSum = 0;
   for (let i = 0; i < nameArrConsonants.length; i++) {
     nameConsonantsSum += calculateLetterNumbers(nameArrConsonants[i]);
-    console.log(nameConsonantsSum);
   }
 
   const socialNumber = reduceNumbers(nameConsonantsSum);
 
-  return { lifePath, characterNumber, socialNumber };
+  return { lifePath, characterNumber, socialNumber, heartNumber };
 }
 
 export function reduceNumbers(number: number) {
